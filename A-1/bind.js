@@ -4,9 +4,9 @@
 Function.prototype.bind = function(){
   var self = this,//原函数
     context = [].shift.apply(arguments),  //obj
-    arg = [].slice.apply(arguments);
+    arg = [].slice.apply(arguments);          //1,2
   return function(){
-    self.apply(context,[].concat.apply(arg,[].slice.call(arguments)));
+    self.apply(context,[].concat.apply(arg,[].slice.call(arguments))); //arguments 3,4
   }
 };
 
