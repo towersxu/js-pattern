@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <form id="registerForm">
+    请输入用户名:<input type="text" name="userName"> <br/>
+    请输入密码:<input type="text" name="password" > <br/>
+    请输入手机号码:<input type="text" name="phoneNumber" > <br/>
+  </form>
+  <button onclick="txt()">提交</button>
+  <script src="formValidate.js"></script>
+  <script>
+    var registerForm = document.getElementById( 'registerForm' );
+    var validataFunc = function(){
+      var validator = new Validator();
+      validator.add( registerForm.userName, [{
+        strategy: 'isNoEmpty',
+        errorMsg: '用户名不能为空'
+      },{
+        strategy: 'minLength:10',
+        errorMsg: '用户名长度不能小于 10 位'
+      }]);
+      var errorMsg = validator.start();
+      return errorMsg;
+    }
+    registerForm.onsubmit = function(){
+      var errorMsg = validataFunc();
+      if ( errorMsg ){
+        alert ( errorMsg );
+        return false;
+      }
+      return false
+    }
+    function txt(){
+      var errorMsg = validataFunc();
+      alert(errorMsg)
+    }
+  </script>
+</body>
+</html>
