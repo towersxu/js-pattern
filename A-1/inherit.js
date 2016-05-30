@@ -56,3 +56,4 @@ aa.getBooks()  // 报错,在将subClass1.prototype = new superClass1()注释掉�
   }
 }
  */
+
