@@ -91,3 +91,7 @@ var obj2 = {
 }
 obj2.getName.call(obj1);     //taox
 ```
+
+##继承详解
+
+- JavaScript中的继承方式(http://www.css88.com/archives/5916)
